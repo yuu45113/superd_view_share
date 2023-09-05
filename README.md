@@ -36,3 +36,6 @@
 - マップ表示のため以下を使用
   - Googleマップ (https://www.google.co.jp/maps)
 
+## 実装機能リスト
+- https://docs.google.com/spreadsheets/d/1HPhUmFmA_Swwqa0to0uBuNOYjVgPn1GYMMl1pT8TQOQ/edit?usp=sharing
+
