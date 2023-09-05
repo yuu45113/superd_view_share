@@ -34,5 +34,5 @@
 ​
 ## 使用素材
 - マップ表示のため以下を使用
-  - unsplash(https://www.google.co.jp/maps)
+  - Googleマップ (https://www.google.co.jp/maps)
 
