@@ -11,15 +11,24 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :posts, only: [:index, :show, :destroy]
     resources :post_comments, only: [:destroy]
-    resources :users, only: [:edit, :update, :destroy]
+    resources :users, only: [:index, :edit, :update, :destroy]
   end
   
   scope module: :users do
     root to: "homes#top"
-    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    devise_scope :user do
+    post "/sessions/guest"=>"sessions#guest"
+    end
+    get "/users/confirm"=>"users#confirm"
+    patch "/users/withdrawal"=>"users#withdrawal"
+    resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+      resource :favorites, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :destroy]
+      collection do
+        get 'search'
+      end
+    end
     resources :post_comments, only: [:create, :destroy]
     resources :users, only: [:show, :edit, :update]
-    patch "/users/withdrawal"=>"users#withdrawal"
-    post "/sessions/guest"=>"sessions#guest"
   end
 end
