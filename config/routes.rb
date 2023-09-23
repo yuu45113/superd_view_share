@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :posts, only: [:index, :show, :destroy]
     resources :post_comments, only: [:destroy]
-    resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :users, only: [:index, :show, :edit, :update, :destroy] do
+      get 'change_deleted', to: 'users#change_deleted'
+    end
   end
-  
+
   scope module: :users do
     root to: "homes#top"
     devise_scope :user do

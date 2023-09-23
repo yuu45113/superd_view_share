@@ -61,6 +61,17 @@
     <div class="col-4 mt-5 ">
       <div class="row justify-content-center">
         <h2>ブックマーク</h2>
+        <table class="table">
+          <% current_user.favorites.each do |favorite| %>
+            <tr>
+              <td><%= image_tag favorite.post.images.first, size: "60x40" %></td>
+              <td><%= favorite.post.name %></td>
+              <td id="favorite_button_<%= favorite.post.id %>">
+                <%= render partial: 'users/favorites/button', locals: {post: favorite.post} %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
 
       </div>
     </div>

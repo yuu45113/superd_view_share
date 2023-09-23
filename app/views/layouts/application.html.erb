@@ -9,6 +9,8 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
   </head>
 
   <body>
@@ -94,18 +96,18 @@
             </ul>
           </div>
         </div>
-        <%= form_with url: search_posts_path, local: true, method: :get, class: "search-form" do |f| %>
-          <%= f.text_field :keyword, placeholder: "検索する", class: "search-input" %>
-          <label for="search-icon" class="search-label"></label>
-          <div class="search-icon">
-            <%= f.submit "検索", class: "search-btn", id: "search-icon" %>
-          </div>
+        <%= form_with url: search_posts_path, local: true, method: :get do |f| %>
+          <%= f.text_field :keyword, placeholder: "検索する" %>
+          <%= f.submit "検索", class: "search-btn btn-success" %>
         <% end %>
-        
+
       </nav>
     </header>
     <main>
       <%= yield %>
     </main>
+    <footer class="bg-primary text-white fixed-bottom text-center py-2">
+      <small>&copy; 2023 Portfolio</small>
+    </footer>
   </body>
 </html>
