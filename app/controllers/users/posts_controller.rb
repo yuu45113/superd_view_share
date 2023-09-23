@@ -8,6 +8,12 @@ class Users::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     
+  
+  
+    # if params[:tag]
+    #   Tag.create(name: params[:tag])
+    # end
+    
     if @post.save
       redirect_to post_path(@post.id)
     else

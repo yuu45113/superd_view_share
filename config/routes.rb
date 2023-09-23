@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :posts, only: [:index, :show, :destroy]
     resources :post_comments, only: [:destroy]
-    resources :users, only: [:index, :edit, :update, :destroy]
+    resources :users, only: [:index, :show, :edit, :update, :destroy]
   end
   
   scope module: :users do
