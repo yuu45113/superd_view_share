@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8 mt-5">
+      <span class="bg-light ml-5 px-2">
+        <strong>コメント</strong>
+      </span>
+    </div>
+  </div>
+  <%= form_with model: [@post, @post_comment] do |f| %>
+    <div class="field mt-5">
+      <div class="row justify-content-center">
+        <!--<div class="col-2 ml-5">-->
+        <!--  <%#= f.label :body, "コメント" %>-->
+        <!--</div>-->
+        <div>
+          <%= f.text_area :body, rows: 5, cols: 30 %>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center mt-3">
+      ※他の投稿者の誹謗中傷や攻撃的なコメントなど、<br>
+       不適切なコメントはお控え下さい
+    </p>
+
+    <div class="actions mt-3 ml-5">
+      <div class="row justify-content-center">
+        <div class="col-4 mt-3">
+          <%= f.submit "コメントする", class: "btn btn-block btn-success" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

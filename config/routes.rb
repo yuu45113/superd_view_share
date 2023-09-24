@@ -25,12 +25,12 @@ Rails.application.routes.draw do
     patch "/users/withdrawal"=>"users#withdrawal"
     resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
-      resources :post_comments, only: [:create, :destroy]
+      resources :post_comments, only: [:new, :create, :destroy]
       collection do
         get 'search'
       end
     end
-    resources :post_comments, only: [:create, :destroy]
+
     resources :users, only: [:show, :edit, :update]
   end
 end

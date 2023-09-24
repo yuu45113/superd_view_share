@@ -18,12 +18,11 @@ class Users::PostsController < ApplicationController
 
   def index
     @posts = Post.page(params[:page]).per 6
-    
+
   end
 
   def show
     @post = Post.find(params[:id])
-    @post_comment = PostComment.new
   end
 
   def edit
@@ -32,6 +31,7 @@ class Users::PostsController < ApplicationController
 
   def search
     @posts = Post.search(params[:keyword])
+    @search_posts = Kaminari.paginate_array(@posts).page(params[:page]).per(6)
   end
 
   def update
