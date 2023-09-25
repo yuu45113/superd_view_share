@@ -40,14 +40,16 @@
         </div>
       </div>
     </div>
-    
+
     <div class="field mt-3">
       <div class="row justify-content-center">
         <div class="col-2">
           <%= f.label :tag, "タグ付け" %>
         </div>
         <div class="col-4">
-          <%= text_field_tag :tag %>
+          <%#= text_field_tag :tag %>
+          <%= text_field_tag :tag, @post.tags.map(&:name).join(', ') %>
+          <%#= text_field_tag :tag, @post.tags.name.split(',') %>
         </div>
       </div>
     </div>
@@ -115,13 +117,13 @@
         </div>
       </div>
     </div>
-    
+
     <div class="row justify-content-center">
       <div class="col-3 mt-5 ml-5">
         <%= f.submit "変更する", class: "btn btn-success" %>
       </div>
       <div class="col-3 mt-5 ">
-        <%= link_to "削除する", post_path(@post.id), method: :delete,　data: {confirm: "削除しますか？"}, class: "btn btn-danger" %>
+        <%= link_to "削除する", post_path(@post.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger" %>
       </div>
     </div>
   <% end %>
