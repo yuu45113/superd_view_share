@@ -1,5 +1,5 @@
 class Users::PostsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:index]
   def new
     @post = Post.new
   end
@@ -27,7 +27,6 @@ class Users::PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-   
   end
 
   def search
@@ -38,9 +37,12 @@ class Users::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     tag_list = params[:tag].split(',')
-    @post.update(post_params)
-    @post.save_tag(tag_list)
-    redirect_to post_path(@post.id)
+    if @post.update(post_params)
+      @post.save_tag(tag_list)
+      redirect_to post_path(@post.id)
+    else
+      edit_post_path(@post.id)
+    end
   end
 
   def destroy

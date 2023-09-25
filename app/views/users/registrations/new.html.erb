@@ -9,7 +9,7 @@
 
       <%= form_with model: @user, url: user_registration_path do |f| %>
         <%= render "users/shared/error_messages", resource: resource %>
-        
+
         <div class="field mt-4">
           <div class="form-row justify-content-center">
             <div class="col-3">
@@ -20,7 +20,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="field mt-4">
           <div class="form-row justify-content-center">
             <div class="col-3">
@@ -31,7 +31,7 @@
             </div>
           </div>
         </div>
-      
+
         <div class="field mt-4">
           <div class="form-row justify-content-center">
             <div class="col-3">
@@ -42,7 +42,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="field mt-4">
           <div class="form-row justify-content-center">
             <div class="col-3">
@@ -56,7 +56,7 @@
             </div>
           </div>
         </div>
-      
+
         <div class="field mt-4">
           <div class="form-row justify-content-center">
             <div class="col-3">
@@ -67,12 +67,12 @@
             </div>
           </div>
         </div>
-      
+
         <div class="actions mt-4 col-4 mx-auto">
           <%= f.submit "新規登録", class: "btn btn-block btn-success" %>
         </div>
       <% end %>
-    
+
     </div>
   </div>
   <div class="row justify-content-center">
@@ -87,7 +87,7 @@
         からログインしてください。
       </div>
       <div>
-        <%= link_to 'ゲストログイン（閲覧用）', sessions_guest_path, method: :post %>
+        <%= link_to 'ゲストログイン', sessions_guest_path, method: :post %>
       </div>
     </div>
   </div>

@@ -71,7 +71,7 @@
 
         <div class="actions mt-3 ml-5">
           <div class="row justify-content-center">
-            <%= link_to "削除する", admins_post_path(@post.id), method: :delete,　data: {confirm: "削除しますか？"}, class: "btn btn-danger" %>
+            <%= link_to "削除する", admins_post_path(@post.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-danger" %>
           </div>
         </div>
       </div>
@@ -82,7 +82,7 @@
           <table class="table mt-3 ml-2">
             <% @post.post_comments.each do |post_comment| %>
               <tr>
-                <td class="col-3 bg-light"> <%= @post.user.nickname %> </td>
+                <td class="col-3 bg-light"> <%#= post_comment.inspect %> <%= @post.user.nickname %> </td>
                 <td class="col-7"> <%= post_comment.body %> </td>
                 <td class="col-2">
                   <%= link_to "削除", admins_post_comment_path(post_comment.id), method: :delete, data: {confirm: "削除しますか？"}, class: "btn btn-sm btn-danger" %>

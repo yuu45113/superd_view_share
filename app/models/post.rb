@@ -10,6 +10,8 @@ class Post < ApplicationRecord
   validates :name, presence: true
   validates :body, presence: true
   validates :address, presence: true
+  validates :latitude, presence: true
+  validates :longitude, presence: true
 
   def self.search(keyword)
   return Post.all unless keyword
