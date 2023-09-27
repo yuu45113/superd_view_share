@@ -64,7 +64,11 @@
         <table class="table">
           <% current_user.favorites.each do |favorite| %>
             <tr>
-              <td><%= image_tag favorite.post.images.first, size: "60x40" %></td>
+              <td>
+                <%= link_to post_path(favorite.post.id) do %>
+                  <%= image_tag favorite.post.images.first, size: "60x40" %>
+                <% end %>
+              </td>
               <td><%= favorite.post.name %></td>
               <td id="favorite_button_<%= favorite.post.id %>">
                 <%= render partial: 'users/favorites/button', locals: {post: favorite.post} %>

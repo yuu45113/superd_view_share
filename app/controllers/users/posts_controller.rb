@@ -41,7 +41,7 @@ class Users::PostsController < ApplicationController
       @post.save_tag(tag_list)
       redirect_to post_path(@post.id)
     else
-      edit_post_path(@post.id)
+      render :edit
     end
   end
 
